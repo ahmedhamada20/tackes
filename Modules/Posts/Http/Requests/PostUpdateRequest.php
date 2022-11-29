@@ -4,7 +4,7 @@ namespace Modules\Posts\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PostUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,7 +15,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => 'required|min:2|max:200|string|regex:/^[A-Za-z-أ-ي-pL\s\-]+$/u|max:255|unique:posts,title,' . $this->id,
-            'image' => 'required|image|mimes:jpeg,bmp,png|max:4096',
+            'image' => 'nullable|image|mimes:jpeg,bmp,png|max:4096',
             'content'=> 'required|string|min:20',
             'author_id'=> 'nullable|exists:users,id',
         ];

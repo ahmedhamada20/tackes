@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Modules\Posts\Entities\Post;
 use Modules\Posts\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\File as FacadesFile;
+use Modules\Posts\Http\Requests\PostUpdateRequest;
 
 class PostsController extends Controller
 {
@@ -82,7 +83,7 @@ class PostsController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(PostRequest $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
 
         try {
