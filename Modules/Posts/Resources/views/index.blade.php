@@ -91,7 +91,7 @@
                                     </td>
 
                                     <td>{{$post->title}}</td>
-                                    <td>{{$post->author}}</td>
+                                    <td>{{$post->author->name}}</td>
                                     <td>{{$post->date}}</td>
                                     <td>
                                         <a href="{{route('posts.edit',$post->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>

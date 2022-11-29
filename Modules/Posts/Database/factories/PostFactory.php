@@ -20,13 +20,6 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'title' => $this->faker->name(),
-            'author' => $this->faker->name(),
-            'image' => $this->faker->image(storage_path('app/public/posts'),640,480, null, false),
-            'date' => date('Y-m-d'),
-            'content' => $this->faker->paragraph(),
-        ];
 
     }
 }

@@ -19,13 +19,6 @@ class PostsDatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        Model::unguard();
 
-        Storage::deleteDirectory('public/posts');
-        Storage::makeDirectory('public/posts');
-        Schema::disableForeignKeyConstraints();
-        DB::table('posts')->truncate();
-        Post::factory()->count(2)->create();
-        Schema::enableForeignKeyConstraints();
     }
 }

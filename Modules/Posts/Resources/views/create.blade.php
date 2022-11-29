@@ -79,15 +79,6 @@
                                @enderror
                            </div>
 
-
-                           <div class="col">
-                               <label>Author</label>
-                               <input type="text" name="author" value="{{old('author')}}" required class="form-control @error('author') is-invalid  @enderror">
-
-                               @error('author')
-                               <div class="alert alert-danger">{{ $message }}</div>
-                               @enderror
-                           </div>
                        </div>
 
                        <br>

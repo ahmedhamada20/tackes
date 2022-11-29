@@ -15,9 +15,9 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => 'required|min:2|max:200|string|regex:/^[A-Za-z-أ-ي-pL\s\-]+$/u|max:255|unique:posts,title,' . $this->id,
-            'image' => 'required|image|mimes:jpeg,bmp,png|max:4096,' . $this->id,
+            'image' => 'nullable|image|mimes:jpeg,bmp,png|max:4096,' . $this->id,
             'content'=> 'required|string|min:20',
-            'author'=> 'required|string|min:2|max:200',
+            'author_id'=> 'nullable|exists:users,id',
         ];
     }
 
@@ -41,10 +41,7 @@ class PostRequest extends FormRequest
             'content.min' => 'يجب ان يكون المدخل اكتر من 20 حرف',
 
 
-            'author.required' => 'هذا الحقل مطلوب',
-            'author.string' => 'يجب الادخال بشكل صحيح',
-            'author.min' => 'يجب ان يكون المدخل اكتر من 20 حرف',
-            'author.max' => 'لقد وصلت الي الحد الاقصي من الحروف',
+            'author.exists' => 'هذا المستخدم غير موجود على النظام',
 
 
         ];

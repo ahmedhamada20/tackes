@@ -43,6 +43,7 @@ class PostsController extends Controller
         try {
             $data = $request->validationData();
             $data['date'] = date('Y-m-d');
+            $data['author_id'] = auth()->id();
             $fileUpload = request()->file('image');
             if ($fileUpload) {
                 $data['image'] = uploadPhoto($fileUpload, 'posts');
@@ -87,7 +88,6 @@ class PostsController extends Controller
         try {
             $items = Post::findorfail($id);
             $data = $request->validationData();
-            $data['date'] = date('Y-m-d');
             $fileUpload = request()->file('image');
             if ($fileUpload) {
                 Storage::disk('public')->delete('posts/'.$items->image);

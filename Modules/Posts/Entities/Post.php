@@ -2,6 +2,7 @@
 
 namespace Modules\Posts\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +16,7 @@ class Post extends Model
 
     protected $fillable = [
         'title',
-        'author',
+        'author_id',
         'image',
         'date',
         'content',
@@ -26,6 +27,11 @@ class Post extends Model
     public function getPhotoAttribute()
     {
         return $this->attributes['image'] != null ? asset('storage/posts/' . $this->attributes['image']) : null;
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class,'author_id');
     }
 
     public function comments()
